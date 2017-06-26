@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CSoldierMovement : Photon.MonoBehaviour
+public class CSoldierMovement : _PhotonMonoBehaviour
 {
     private CharacterController _cc;
 

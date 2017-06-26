@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CSoldierAnimation : Photon.MonoBehaviour
+public class CSoldierAnimation : _PhotonMonoBehaviour
 {
     private CSoldierStat _stat;
 
