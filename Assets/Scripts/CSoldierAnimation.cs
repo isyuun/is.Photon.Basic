@@ -26,6 +26,8 @@ public class CSoldierAnimation : _PhotonMonoBehaviour
 
     public void PlayAnimation(CSoldierStat.STATE state)
     {
+        _stat._state = state;
+
         switch (state)
         {
             case CSoldierStat.STATE.IDLE:

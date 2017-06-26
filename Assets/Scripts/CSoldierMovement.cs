@@ -17,8 +17,8 @@ public class CSoldierMovement : _PhotonMonoBehaviour
 
     private void Awake()
     {
-        _stat = GetComponent<CSoldierStat>();
         _cc = GetComponent<CharacterController>();
+        _stat = GetComponent<CSoldierStat>();
         _anim = GetComponent<CSoldierAnimation>();
     }
 

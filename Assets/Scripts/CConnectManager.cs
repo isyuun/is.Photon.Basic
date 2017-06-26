@@ -57,6 +57,15 @@ public class CConnectManager : _MonoBehaviour, IPunCallbacks
         float posX = UnityEngine.Random.Range(-3.0f, 3.0f);
         float posZ = UnityEngine.Random.Range(0.0f, 3.0f);
 
+        string playerName = "Player" + posX + posZ;
+
+        if (_nameInputField.text.Length > 0)
+        {
+            playerName = _nameInputField.text;
+        }
+
+        PhotonNetwork.playerName = playerName;
+
         //GameObject playerPrefab = (GameObject)Resources.Load("Prefabs/Player");
         //Instantiate(playerPrefab, new Vector3(posX, 0.0f, posZ), Quaternion.identity);
         GameObject player = PhotonNetwork.Instantiate("Prefabs/Player", new Vector3(posX, 0.01f, posZ), Quaternion.identity, 0);
