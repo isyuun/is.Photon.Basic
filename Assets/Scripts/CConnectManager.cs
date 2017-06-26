@@ -59,7 +59,10 @@ public class CConnectManager : _MonoBehaviour, IPunCallbacks
 
         //GameObject playerPrefab = (GameObject)Resources.Load("Prefabs/Player");
         //Instantiate(playerPrefab, new Vector3(posX, 0.0f, posZ), Quaternion.identity);
-        PhotonNetwork.Instantiate("Prefabs/Player", new Vector3(posX, 0.0f, posZ), Quaternion.identity, 0);
+        GameObject player = PhotonNetwork.Instantiate("Prefabs/Player", new Vector3(posX, 0.01f, posZ), Quaternion.identity, 0);
+
+        CFollowCamera camera = Camera.main.GetComponent<CFollowCamera>();
+        camera.Init(player.transform);
 
         _startPanel.SetActive(false);
     }
