@@ -32,7 +32,7 @@ public static class ScoreExtensions
     public static int GetScore(this PhotonPlayer player)
     {
         object score;
-        if (player.CustomProperties.TryGetValue(PunPlayerScores.PlayerScoreProp, out score))
+        if (player != null && player.CustomProperties.TryGetValue(PunPlayerScores.PlayerScoreProp, out score))
         {
             return (int) score;
         }

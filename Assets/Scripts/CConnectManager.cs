@@ -57,7 +57,7 @@ public class CConnectManager : _MonoBehaviour, IPunCallbacks
         float posX = UnityEngine.Random.Range(-3.0f, 3.0f);
         float posZ = UnityEngine.Random.Range(0.0f, 3.0f);
 
-        string playerName = "Player" + posX + posZ;
+        string playerName = "Player" + ":" + PhotonNetwork.playerList.Length;
 
         if (_nameInputField.text.Length > 0)
         {
@@ -69,6 +69,12 @@ public class CConnectManager : _MonoBehaviour, IPunCallbacks
         //GameObject playerPrefab = (GameObject)Resources.Load("Prefabs/Player");
         //Instantiate(playerPrefab, new Vector3(posX, 0.0f, posZ), Quaternion.identity);
         GameObject player = PhotonNetwork.Instantiate("Prefabs/Player", new Vector3(posX, 0.01f, posZ), Quaternion.identity, 0);
+
+        if (PhotonNetwork.isMasterClient)
+        {
+            //PhotonNetwork.Instantiate("Prefabs/Box", new Vector3(posX + 2.0f, 0.01f, posZ), Quaternion.identity, 0);
+            PhotonNetwork.InstantiateSceneObject("Prefabs/Box", new Vector3(posX + 2.0f, 0.01f, posZ), Quaternion.identity, 0, null);
+        }
 
         CFollowCamera camera = Camera.main.GetComponent<CFollowCamera>();
         camera.Init(player.transform);
