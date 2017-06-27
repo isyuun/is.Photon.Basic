@@ -69,6 +69,7 @@ public class CConnectManager : _MonoBehaviour, IPunCallbacks
         //GameObject playerPrefab = (GameObject)Resources.Load("Prefabs/Player");
         //Instantiate(playerPrefab, new Vector3(posX, 0.0f, posZ), Quaternion.identity);
         GameObject player = PhotonNetwork.Instantiate("Prefabs/Player", new Vector3(posX, 0.01f, posZ), Quaternion.identity, 0);
+        //player.name = PhotonNetwork.playerName;
 
         if (PhotonNetwork.isMasterClient)
         {

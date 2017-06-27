@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CSoldierMovement : _PhotonMonoBehaviour
 {
-    private CharacterController _cc;
+    protected CharacterController _cc;
 
-    private Vector3 _moveDir = Vector3.zero;
+    private Vector3 moveDir = Vector3.zero;
 
     public float _speed;
     public float _gravity;
 
-    private CSoldierAnimation _anim;
+    protected CSoldierAnimation _anim;
 
     private CSoldierStat _stat;
 
@@ -28,8 +28,8 @@ public class CSoldierMovement : _PhotonMonoBehaviour
         {
             if (_stat._state != CSoldierStat.STATE.DEATH)
             {
-                Move();
-                Turn();
+                //Move();
+                //Turn();
             }
         }
     }
@@ -39,7 +39,7 @@ public class CSoldierMovement : _PhotonMonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-        _moveDir = new Vector3(h, 0f, v);
+        moveDir = new Vector3(h, 0f, v);
 
         if (h != 0 || v != 0)
         {
@@ -57,10 +57,10 @@ public class CSoldierMovement : _PhotonMonoBehaviour
             speed = speed * degree;
         }
 
-        _moveDir *= speed;
-        _moveDir.y -= _gravity;
+        moveDir *= speed;
+        moveDir.y -= _gravity;
 
-        _cc.Move(_moveDir * Time.deltaTime);
+        _cc.Move(moveDir * Time.deltaTime);
     }
 
     void Turn()
@@ -78,4 +78,5 @@ public class CSoldierMovement : _PhotonMonoBehaviour
             transform.rotation = newRotation;
         }
     }
+
 }
