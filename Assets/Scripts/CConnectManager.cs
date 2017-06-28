@@ -71,11 +71,12 @@ public class CConnectManager : _MonoBehaviour, IPunCallbacks
         GameObject player = PhotonNetwork.Instantiate("Prefabs/Player", new Vector3(posX, 0.01f, posZ), Quaternion.identity, 0);
         //player.name = PhotonNetwork.playerName;
 
-        if (PhotonNetwork.isMasterClient)
-        {
-            //PhotonNetwork.Instantiate("Prefabs/Box", new Vector3(posX + 2.0f, 0.01f, posZ), Quaternion.identity, 0);
-            PhotonNetwork.InstantiateSceneObject("Prefabs/Box", new Vector3(posX + 2.0f, 0.01f, posZ), Quaternion.identity, 0, null);
-        }
+        ////phton scene object
+        //if (PhotonNetwork.isMasterClient)
+        //{
+        //    //PhotonNetwork.Instantiate("Prefabs/Box", new Vector3(posX + 2.0f, 0.01f, posZ), Quaternion.identity, 0);
+        //    PhotonNetwork.InstantiateSceneObject("Prefabs/Box", new Vector3(posX + 2.0f, 0.01f, posZ), Quaternion.identity, 0, null);
+        //}
 
         CFollowCamera camera = Camera.main.GetComponent<CFollowCamera>();
         camera.Init(player.transform);
